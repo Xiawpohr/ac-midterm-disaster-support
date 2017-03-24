@@ -17,20 +17,20 @@ category_list = [
 disaster_list = [
 	{ 
 		title: '台南地震',
-		content: '房子倒塌'
+		content: '房子倒塌',
 		category_id: 1
 	},
 	{ 
 		title: '花蓮海嘯',
-		content: '死傷慘重'
+		content: '死傷慘重',
 		category_id: 1
 	}
 ]
 
 category_list.each { |category|
-	Category.create(name: category.name)
+	Category.create(name: category[:name])
 }
 
 disaster_list.each { |disaster|
-	Disaster.create(title: disaster.title, content: disaster.content, category_id: disaster.category_id)
+	Disaster.create(title: disaster[:title], content: disaster[:content], category_id: disaster[:category_id])
 }
