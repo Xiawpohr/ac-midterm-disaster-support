@@ -1,4 +1,6 @@
 class DisastersController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :destroy]
+
 	def index
 		@disasters = Disaster.all
 		@disaster = Disaster.new
@@ -6,6 +8,7 @@ class DisastersController < ApplicationController
 
 	def create
 		disaster = Disaster.new(disaster_params)
+		disaster.user = current_user
 		disaster.save
 		redirect_to disasters_path
 	end
@@ -14,6 +17,12 @@ class DisastersController < ApplicationController
 		@disaster = Disaster.find(params[:id])
 		@comments = Commet.all
 		@comment = Commet.new
+	end
+
+	def destroy
+		disaster = Disaster.find(params[:id])
+		disaster.destroy
+		redirect_to disasters_path
 	end
 
 	private 

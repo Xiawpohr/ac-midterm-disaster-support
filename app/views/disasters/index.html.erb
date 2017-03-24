@@ -17,6 +17,7 @@
 		<li>
 			<%= link_to disaster.title, disaster_path(disaster) %>
 			<%= disaster.created_at %>
+			<%= link_to "刪除", disaster_path(disaster), method: :delete %>
 		</li>
 	<% end %>
 </ul>
