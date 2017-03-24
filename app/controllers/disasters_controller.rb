@@ -3,7 +3,11 @@ class DisastersController < ApplicationController
 
 	def index
 		@disasters = Disaster.all
-		@disaster = Disaster.new
+		if params[:id]
+			@disaster = Disaster.find(params[:id])
+		else
+			@disaster = Disaster.new
+		end
 	end
 
 	def create
@@ -15,8 +19,14 @@ class DisastersController < ApplicationController
 
 	def show
 		@disaster = Disaster.find(params[:id])
-		@comments = Commet.all
+		@comments = @disaster.commets
 		@comment = Commet.new
+	end
+
+	def update
+		disaster = Disaster.find(params[:id])
+		disaster.update(disaster_params)
+		redirect_to disasters_path
 	end
 
 	def destroy

@@ -1,9 +1,9 @@
 <%= link_to "Back", disasters_path %><br>
-<%= @disaster.category.name %><br>
-<%= @disaster.title %><br>
-<%= @disaster.content%><br>
+分類：<%= @disaster.category.name %><br>
+標題：<%= @disaster.title %><br>
+內容：<%= @disaster.content%><br>
 
-<div>留言</div>
+<div>留言：</div>
 <ul>
 	<% @comments.each do |comment| %>
 		<li>
