@@ -1,3 +1,17 @@
+<%= form_for @disaster, url: disasters_path do |f| %>
+	<%= f.label :title, "標題" %>
+	<%= f.text_field :title %>
+
+	<%= f.label :content, "內容" %>
+	<%= f.text_area :content %>
+	
+	<%= f.label :category_id, "分類" %>
+	<%= f.select :category_id, Category.all.collect {|c| [c.name, c.id]} %>
+
+	<%= f.submit %>
+
+<% end %>
+
 <ul>
 	<% @disasters.each do |disaster| %>
 		<li>
