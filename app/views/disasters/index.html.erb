@@ -15,7 +15,7 @@
 <ul>
 	<% @disasters.each do |disaster| %>
 		<li>
-			<%= disaster.title %>
+			<%= link_to disaster.title, disaster_path(disaster) %>
 			<%= disaster.created_at %>
 		</li>
 	<% end %>

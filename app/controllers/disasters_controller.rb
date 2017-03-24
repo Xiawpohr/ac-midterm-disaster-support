@@ -10,6 +10,10 @@ class DisastersController < ApplicationController
 		redirect_to disasters_path
 	end
 
+	def show
+		@disaster = Disaster.find(params[:id])
+	end
+
 	private 
 
 		def disaster_params
