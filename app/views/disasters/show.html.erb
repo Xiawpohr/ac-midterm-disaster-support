@@ -1,5 +1,24 @@
-<%= @disaster.category.name %>
-<%= @disaster.title %>
-<%= @disaster.content%>
+<%= link_to "Back", disasters_path %><br>
+<%= @disaster.category.name %><br>
+<%= @disaster.title %><br>
+<%= @disaster.content%><br>
 
-<%= link_to "Back", disasters_path %>
+<div>留言</div>
+<ul>
+	<% @comments.each do |comment| %>
+		<li>
+			<%= comment.speaker %> : 
+			<%= comment.content %>
+		</li>
+	<% end %>
+</ul>
+
+<%= form_for [@disaster, @comment], url: disaster_commets_path(@disaster) do |f| %>
+	<%= f.label :speaker, "名字" %>
+	<%= f.text_field :speaker %>
+
+	<%= f.label :content, "留言" %>
+	<%= f.text_area :content %>
+
+	<%= f.submit %>
+<% end %>

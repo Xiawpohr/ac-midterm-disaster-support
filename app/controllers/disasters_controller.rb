@@ -12,6 +12,8 @@ class DisastersController < ApplicationController
 
 	def show
 		@disaster = Disaster.find(params[:id])
+		@comments = Commet.all
+		@comment = Commet.new
 	end
 
 	private 
