@@ -9,6 +9,7 @@
 		<li>
 			<%= comment.speaker %> : 
 			<%= comment.content %>
+			<%= link_to "刪除", disaster_commet_path(@disaster, comment), method: :delete if comment.user == current_user%>
 		</li>
 	<% end %>
 </ul>
