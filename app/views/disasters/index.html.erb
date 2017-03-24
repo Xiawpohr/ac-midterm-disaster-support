@@ -1,0 +1,8 @@
+<ul>
+	<% @disasters.each do |disaster| %>
+		<li>
+			<%= disaster.title %>
+			<%= disaster.created_at %>
+		</li>
+	<% end %>
+</ul>
