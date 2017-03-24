@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324065819) do
+ActiveRecord::Schema.define(version: 20170324082940) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "commets", force: :cascade do |t|
+    t.string   "speaker"
+    t.text     "content"
+    t.integer  "disaster_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["disaster_id"], name: "index_commets_on_disaster_id"
   end
 
   create_table "disasters", force: :cascade do |t|
